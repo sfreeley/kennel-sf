@@ -1,0 +1,79 @@
+/* Import the google web fonts you want to use */
+@import url("https://fonts.googleapis.com/css?family=Comfortaa|Patua+One");
+
+/*Typography
+--------------------------------------------------------------*/
+body,
+button,
+input,
+select,
+textarea {
+  color: #404040;
+  font-family: "Comfortaa", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Patua One", serif;
+  letter-spacing: 2px;
+}
+
+p {
+  margin-bottom: 1.5em;
+  color: #d6fcff;
+  color: darkslateblue;
+}
+
+strong {
+  font-weight: bold;
+}
+
+address {
+  margin: 0 0 1.5em;
+}
+
+img {
+  display: block;
+  border: 0;
+  width: 100%;
+  height: auto;
+}
+
+.section-content {
+  padding: 1.4em;
+}
+
+.container-cards {
+  display: flex;
+  justify-content: space-between;
+}
+ /* .container-card__animalCard {
+  display: flex;
+  flex: 1;
+  justify-content: space-around;
+}
+
+.container-card__locationCard {
+  display: flex;
+  align-items: flex-end;
+  flex: 1;
+  justify-content: space-around;
+}
+
+.container-card__ownerCard {
+  display: flex;
+  flex: 1;
+  justify-content: space-around;
+}
+
+.container-card__employeeCard {
+  display: flex;
+  flex: 1;
+  justify-content: space-around;
+}  */
