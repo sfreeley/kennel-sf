@@ -1,0 +1,72 @@
+{
+    "animals": [
+        { "id": 1, "name": "Doodles", "breed": "Poodle", "picture": "dog.svg"},
+        { "id": 2, "name": "Decker", "breed": "German Shepherd", "picture": "german-sheperd.jpg"},
+        { "id": 3, "name": "Esme", "breed": "Pitbull", "picture": "pitbull.jpg" }
+    ],
+
+    "locations": [
+        {
+            "id": 1,
+            "name": "East Nashville",
+            "hours": "24 hours",
+            "address": "Wishbone Rd"
+        },
+        {
+            "id": 2,
+            "name": "West Nashville",
+            "hours": "10am to 8pm",
+            "address": "Milkbone Rd"
+        },
+
+        {
+            "id": 3,
+            "name": "South Nashville",
+            "hours": "8am to 8pm",
+            "address": "Blue Buffalo Dr"
+        }
+    ],
+
+    "employees": [
+        {
+            "id": 1,
+            "name": "Otto",
+            "age": 20,
+            "experience": "5 years"
+        },
+
+        {
+            "id": 2,
+            "name": "Jasmine",
+            "age": 35,
+            "experience": "1 year"
+        },
+
+        {
+            "id": 3,
+            "name": "Georgie",
+            "age": 26,
+            "experience": "2.5 years"
+        }
+    ],
+
+    "owners": [
+        {
+            "id": 1,
+            "name": "Eliza",
+            "phone": "(253) 555-1111"
+        },
+
+         {
+             "id": 2,
+             "name": "Peggy",
+             "phone": "(321) 555-2222"
+         },
+
+         {
+             "id": 3,
+             "name": "Alexander",
+             "phone": "(847) 555-3333"
+         }
+    ]
+}
