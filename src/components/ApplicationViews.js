@@ -5,6 +5,7 @@ import Home from "./home/Home";
 import AnimalList from "./animal/AnimalList";
 import AnimalDetail from "./animal/AnimalDetail"
 import LocationList from "./locations/LocationList";
+import LocationDetail from "./locations/LocationDetail";
 import EmployeeList from "./employees/EmployeeList";
 import OwnerList from "./owners/OwnerList";
 
@@ -32,13 +33,24 @@ const ApplicationViews = () => {
             path="/animals/:animalId(\d+)"
             render={props => {
                 //pass animalId to AnimalDetailComponent
-                return <AnimalDetail animalId={parseInt(props.match.params.animalId)} />
+                return <AnimalDetail animalId={parseInt(props.match.params.animalId)}
+                //AnimalDetail component needs to get router history object so we must pass the props to this component
+                //spread operator copies all Router properties onto AnimalDetail component
+                {...props} />
             }}
             />
-            <Route 
+            <Route
+            exact
             path="/locations"
             render={props => {
                 return <LocationList />;
+            }}
+            />
+            <Route 
+            path="/locations/:locationId(\d+)"
+            render={props => {
+                return <LocationDetail locationId={parseInt(props.match.params.locationId)} 
+                                       {...props}/>
             }}
             />
             <Route 
