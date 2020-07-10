@@ -1,7 +1,7 @@
 {
     "animals": [
-        { "id": 1, "name": "Doodles", "breed": "Poodle", "picture": "dog.svg"},
-        { "id": 2, "name": "Decker", "breed": "German Shepherd", "picture": "german-sheperd.jpg"},
+        { "id": 1, "name": "Doodles", "breed": "Poodle", "picture":"dog.svg"},
+        { "id": 2, "name": "Decker", "breed": "German Shepherd", "picture": "german-shepherd.jpg"},
         { "id": 3, "name": "Esme", "breed": "Pitbull", "picture": "pitbull.jpg" }
     ],
 
@@ -10,20 +10,23 @@
             "id": 1,
             "name": "East Nashville",
             "hours": "24 hours",
-            "address": "Wishbone Rd"
+            "address": "Wishbone Rd",
+            "picture": "doggy.jpg"
         },
         {
             "id": 2,
             "name": "West Nashville",
             "hours": "10am to 8pm",
-            "address": "Milkbone Rd"
+            "address": "Milkbone Rd",
+            "picture": "pit-bull2.jpg"
         },
 
         {
             "id": 3,
             "name": "South Nashville",
             "hours": "8am to 8pm",
-            "address": "Blue Buffalo Dr"
+            "address": "Blue Buffalo Dr",
+            "picture": "help-pitbull.jpg"
         }
     ],
 
@@ -32,21 +35,24 @@
             "id": 1,
             "name": "Otto",
             "age": 20,
-            "experience": "5 years"
+            "experience": "5 years",
+            "picture": "employee-dog.jpg"
         },
 
         {
             "id": 2,
             "name": "Jasmine",
             "age": 35,
-            "experience": "1 year"
+            "experience": "1 year",
+            "picture": "dog-simba.jpg"
         },
 
         {
             "id": 3,
             "name": "Georgie",
             "age": 26,
-            "experience": "2.5 years"
+            "experience": "2.5 years",
+            "picture": "dog-walker.jpg"
         }
     ],
 
@@ -54,19 +60,22 @@
         {
             "id": 1,
             "name": "Eliza",
-            "phone": "(253) 555-1111"
+            "phone": "(253) 555-1111",
+            "picture": "dog-friend.jpg"
         },
 
          {
              "id": 2,
              "name": "Peggy",
-             "phone": "(321) 555-2222"
+             "phone": "(321) 555-2222",
+             "picture": "pug-owner.jpg"
          },
 
          {
              "id": 3,
              "name": "Alexander",
-             "phone": "(847) 555-3333"
+             "phone": "(847) 555-3333",
+             "picture": "sunset-dog-owner.jpg"
          }
     ]
 }

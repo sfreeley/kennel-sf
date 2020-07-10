@@ -1,5 +1,7 @@
 import React from "react";
 import "./Animal.css";
+//importing Link component from React router
+import { Link } from "react-router-dom";
 
 //this is the component that is responsible for displaying an animal
 const AnimalCard = (props) => {
@@ -7,7 +9,7 @@ const AnimalCard = (props) => {
         <div className="card">
             <div className="card-content">
                 <picture>
-                    <img src={require("./dog.svg")} alt="My Dog" />   
+                    <img src={require(`./${props.animal.picture}`)} alt="My Dog" />   
                 </picture>
                 <h3>
                     Name: <span className="card-petname">
@@ -15,9 +17,13 @@ const AnimalCard = (props) => {
                     </span>
                 </h3>
                 <p>Breed: {props.animal.breed} </p>
+                <Link to={`/animals/${props.animal.id}`}>
+                    <button>Details</button>
+                </Link>
+                <button type="button" onClick={() => props.deleteAnimal(props.animal.id)}>Discharge</button>
             </div>
         </div>
     );
 };
 
-export default AnimalCard;
+export default AnimalCard; 

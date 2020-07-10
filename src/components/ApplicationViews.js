@@ -3,6 +3,7 @@ import { Route } from "react-router-dom";
 import React from "react";
 import Home from "./home/Home";
 import AnimalList from "./animal/AnimalList";
+import AnimalDetail from "./animal/AnimalDetail"
 import LocationList from "./locations/LocationList";
 import EmployeeList from "./employees/EmployeeList";
 import OwnerList from "./owners/OwnerList";
@@ -21,9 +22,17 @@ const ApplicationViews = () => {
             }}
             />
             <Route
+            exact
             path="/animals"
             render={props => {
                 return <AnimalList />;
+            }}
+            />
+            <Route
+            path="/animals/:animalId(\d+)"
+            render={props => {
+                //pass animalId to AnimalDetailComponent
+                return <AnimalDetail animalId={parseInt(props.match.params.animalId)} />
             }}
             />
             <Route 
@@ -53,3 +62,4 @@ export default ApplicationViews;
 
 //note: exact needed on home page path because it will also match the other pages that have a "/" and render all the other components as well
 //if have Link must have Route element!
+
