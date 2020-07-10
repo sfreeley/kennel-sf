@@ -11,13 +11,23 @@ const LocationList = () => {
         });
     };
 
+    const deleteLocation = (id) => {
+        LocationManager.deleteLocation(id).then(() => {
+            LocationManager.getAllLocations().then(locationsFromAPI => {
+                return setLocations(locationsFromAPI)
+            });
+        });
+    };
+
     useEffect(() => {
         getLocations();
     }, []);
 
-    return(
+    return (
         <div className="container-cards">
-            { locations.map(location => <LocationCard key="location.id" location={location} />)}
+            {locations.map(location => <LocationCard key={location.id} 
+                                                     location={location}
+                                                     deleteLocation={deleteLocation}/>)}
         </div>
     );
 };

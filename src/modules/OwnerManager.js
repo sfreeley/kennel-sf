@@ -7,5 +7,12 @@ export default {
 
     getAllOwners() {
         return fetch(`${remoteURL}/owners`).then(result => result.json())
+    },
+
+    deleteOwner(id) {
+        return fetch(`${remoteURL}/owners/${id}`,{
+            method: "DELETE",
+        }).then(result => result.json())
+        
     }
 }
