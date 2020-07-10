@@ -1,16 +1,20 @@
 import React from "react";
+import "./Animal.css";
+
 //this is the component that is responsible for displaying an animal
-const AnimalCard = () => {
+const AnimalCard = (props) => {
     return (
         <div className="card">
             <div className="card-content">
                 <picture>
-                    <img src={require("./dog.svg")} alt="My Dog" />
+                    <img src={require("./dog.svg")} alt="My Dog" />   
                 </picture>
                 <h3>
-                    Name: <span className="card-petname">Doodles</span>
+                    Name: <span className="card-petname">
+                        {props.animal.name}
+                    </span>
                 </h3>
-                <p>Breed: Poodle</p>
+                <p>Breed: {props.animal.breed} </p>
             </div>
         </div>
     );

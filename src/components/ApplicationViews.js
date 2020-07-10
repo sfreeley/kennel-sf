@@ -2,10 +2,10 @@
 import { Route } from "react-router-dom";
 import React from "react";
 import Home from "./home/Home";
-import AnimalCard from "./animal/AnimalCard";
-import LocationCard from "./locations/LocationCard";
-import EmployeeCard from "./employees/EmployeeCard";
-import OwnerCard from "./owners/OwnerCard";
+import AnimalList from "./animal/AnimalList";
+import LocationList from "./locations/LocationList";
+import EmployeeList from "./employees/EmployeeList";
+import OwnerList from "./owners/OwnerList";
 
 //this Application Views component will be defining HOW the application responds
 //after the links are clicked in nav bar -- this will render that specific component in DOM
@@ -23,25 +23,25 @@ const ApplicationViews = () => {
             <Route
             path="/animals"
             render={props => {
-                return <AnimalCard />;
+                return <AnimalList />;
             }}
             />
             <Route 
             path="/locations"
             render={props => {
-                return <LocationCard />;
+                return <LocationList />;
             }}
             />
             <Route 
             path="/employees"
             render={props => {
-                return <EmployeeCard />;
+                return <EmployeeList />;
             }}
             />
             <Route
             path="/owners"
             render={props => {
-                return <OwnerCard />;
+                return <OwnerList />;
             }}
             />
         </React.Fragment>
