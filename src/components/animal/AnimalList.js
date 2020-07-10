@@ -20,6 +20,15 @@ const AnimalList = () => {
        });
    };
 
+   const deleteAnimal = id => {
+       AnimalManager.delete(id)
+       .then(() => {
+           AnimalManager.getAll().then((animalsFromAPI) => {
+                setAnimals(animalsFromAPI)
+           });
+       });
+   };
+
    //when state changes what should be done? it will invoke getAnimals function
    //which will get all the animals from the API
    //empty array tells when to call the function (ie at first render of the component)
@@ -29,9 +38,14 @@ const AnimalList = () => {
    }, []);
 
    //use map() to iterate through the animals array and show list of animals
+   //passing the deleteAnimal function to child component (which gives it the ability to invoke function that belongs to parent)
+   //REMEMBER: component where state lives is only place state can change -- children cannot change state
    return(
        <div className="container-cards">
-           {animals.map(animal => <AnimalCard key={animal.id} animal={animal}/>)}
+           {animals.map(animal => <AnimalCard 
+                                    key={animal.id} 
+                                    animal={animal}
+                                    deleteAnimal={deleteAnimal} />)}
        </div>
    );
 };

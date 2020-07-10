@@ -7,7 +7,7 @@ const AnimalCard = (props) => {
         <div className="card">
             <div className="card-content">
                 <picture>
-                    <img src={require("./dog.svg")} alt="My Dog" />   
+                    <img src={require(`./${props.animal.picture}`)} alt="My Dog" />   
                 </picture>
                 <h3>
                     Name: <span className="card-petname">
@@ -20,4 +20,4 @@ const AnimalCard = (props) => {
     );
 };
 
-export default AnimalCard;
+export default AnimalCard; 

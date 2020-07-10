@@ -5,7 +5,15 @@ export default {
     get (id) {
         return fetch(`${remoteURL}/animals/${id}`).then(result => result.json())
     },
+
     getAll() {
         return fetch(`${remoteURL}/animals`).then(result => result.json())
+    },
+
+    delete(id) {
+        return fetch(`${remoteURL}/anima.s/${id}`, {
+            method: "DELETE"
+        }).then(result => result.json())
     }
+
 }
