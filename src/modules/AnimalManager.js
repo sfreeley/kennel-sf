@@ -11,7 +11,7 @@ export default {
     },
 
     delete(id) {
-        return fetch(`${remoteURL}/anima.s/${id}`, {
+        return fetch(`${remoteURL}/animals/${id}`, {
             method: "DELETE"
         }).then(result => result.json())
     }
