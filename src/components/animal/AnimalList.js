@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import AnimalCard from "./AnimalCard";
 import AnimalManager from "../../modules/AnimalManager"
 
-const AnimalList = () => {
+const AnimalList = (props) => {
     //the initial state is an empty array
     const [animals, setAnimals] = useState([]);
 
@@ -41,12 +41,21 @@ const AnimalList = () => {
    //passing the deleteAnimal function to child component (which gives it the ability to invoke function that belongs to parent)
    //REMEMBER: component where state lives is only place state can change -- children cannot change state
    return(
+       <>
+       <section className="section-content">
+           <button type="button"
+           className="btn"
+           onClick={() => {props.history.push("/animals/new")}}>
+               Admit Animal
+           </button>
+       </section>
        <div className="container-cards">
            {animals.map(animal => <AnimalCard 
                                     key={animal.id} 
                                     animal={animal}
                                     deleteAnimal={deleteAnimal} />)}
        </div>
+       </>
    );
 };
 

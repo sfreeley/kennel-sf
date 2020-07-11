@@ -2,6 +2,7 @@ import React from "react";
 import "./Animal.css";
 //importing Link component from React router
 import { Link } from "react-router-dom";
+import { firstLetterCase } from "../../modules/helpers";
 
 //this is the component that is responsible for displaying an animal
 const AnimalCard = (props) => {
@@ -9,11 +10,12 @@ const AnimalCard = (props) => {
         <div className="card">
             <div className="card-content">
                 <picture>
-                    <img src={require(`./${props.animal.picture}`)} alt="My Dog" />   
+                    <img src={require(`./${props.animal.picture}`)} alt={props.animal.name} /> 
+                    {/* {props.animal.picture === "" ? undefined :    */}
                 </picture>
                 <h3>
                     Name: <span className="card-petname">
-                        {props.animal.name}
+                        {firstLetterCase(props.animal.name)}
                     </span>
                 </h3>
                 <p>Breed: {props.animal.breed} </p>

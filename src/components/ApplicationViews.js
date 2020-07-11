@@ -3,11 +3,16 @@ import { Route } from "react-router-dom";
 import React from "react";
 import Home from "./home/Home";
 import AnimalList from "./animal/AnimalList";
-import AnimalDetail from "./animal/AnimalDetail"
+import AnimalDetail from "./animal/AnimalDetail";
+import AnimalForm from "./animal/AnimalForm";
 import LocationList from "./locations/LocationList";
 import LocationDetail from "./locations/LocationDetail";
+import LocationForm from "./locations/LocationForm";
 import EmployeeList from "./employees/EmployeeList";
+import EmployeeForm from "./employees/EmployeeForm";
 import OwnerList from "./owners/OwnerList";
+import OwnerForm from "./owners/OwnerForm";
+
 
 //this Application Views component will be defining HOW the application responds
 //after the links are clicked in nav bar -- this will render that specific component in DOM
@@ -26,7 +31,8 @@ const ApplicationViews = () => {
             exact
             path="/animals"
             render={props => {
-                return <AnimalList />;
+                //giving all properties of Router to AnimalList so that history.push can be utilized
+                return <AnimalList {...props}/>;
             }}
             />
             <Route
@@ -40,10 +46,16 @@ const ApplicationViews = () => {
             }}
             />
             <Route
+            path="/animals/new"
+            render={(props) => {
+                return <AnimalForm {...props} />
+            }}
+            />
+            <Route
             exact
             path="/locations"
             render={props => {
-                return <LocationList />;
+                return <LocationList {...props} />;
             }}
             />
             <Route 
@@ -53,16 +65,36 @@ const ApplicationViews = () => {
                                        {...props}/>
             }}
             />
-            <Route 
-            path="/employees"
+            <Route
+            path="/locations/new"
             render={props => {
-                return <EmployeeList />;
+                return <LocationForm {...props} />
             }}
             />
             <Route
+            exact
+            path="/employees"
+            render={props => {
+                return <EmployeeList {...props} />;
+            }}
+            />
+            <Route
+            path="/employees/new"
+            render={props => {
+                return <EmployeeForm {...props} />
+            }}
+            />
+            <Route
+            exact
             path="/owners"
             render={props => {
-                return <OwnerList />;
+                return <OwnerList {...props} />;
+            }}
+            />
+            <Route 
+            path="/owners/new"
+            render={props => {
+                return <OwnerForm {...props} />
             }}
             />
         </React.Fragment>

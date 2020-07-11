@@ -9,10 +9,20 @@ export default {
         return fetch(`${remoteURL}/employees`).then(result => result.json())
     },
 
-    delete(id) {
+    deleteEmployee(id) {
         return fetch(`${remoteURL}/employees/${id}`, {
             method: "DELETE"
         }).then(result => result.json())
+    },
+
+    postEmployee(newEmployee) {
+        return fetch(`${remoteURL}/employees`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(newEmployee)
+        }).then(data => data.json())
     }
 
 }

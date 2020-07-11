@@ -1,81 +1,120 @@
 {
-    "animals": [
-        { "id": 1, "name": "Doodles", "breed": "Poodle", "picture":"dog.svg"},
-        { "id": 2, "name": "Decker", "breed": "German Shepherd", "picture": "german-shepherd.jpg"},
-        { "id": 3, "name": "Esme", "breed": "Pitbull", "picture": "pitbull.jpg" }
-    ],
-
-    "locations": [
-        {
-            "id": 1,
-            "name": "East Nashville",
-            "hours": "24 hours",
-            "address": "Wishbone Rd",
-            "picture": "doggy.jpg"
-        },
-        {
-            "id": 2,
-            "name": "West Nashville",
-            "hours": "10am to 8pm",
-            "address": "Milkbone Rd",
-            "picture": "pit-bull2.jpg"
-        },
-
-        {
-            "id": 3,
-            "name": "South Nashville",
-            "hours": "8am to 8pm",
-            "address": "Blue Buffalo Dr",
-            "picture": "help-pitbull.jpg"
-        }
-    ],
-
-    "employees": [
-        {
-            "id": 1,
-            "name": "Otto",
-            "age": 20,
-            "experience": "5 years",
-            "picture": "employee-dog.jpg"
-        },
-
-        {
-            "id": 2,
-            "name": "Jasmine",
-            "age": 35,
-            "experience": "1 year",
-            "picture": "dog-simba.jpg"
-        },
-
-        {
-            "id": 3,
-            "name": "Georgie",
-            "age": 26,
-            "experience": "2.5 years",
-            "picture": "dog-walker.jpg"
-        }
-    ],
-
-    "owners": [
-        {
-            "id": 1,
-            "name": "Eliza",
-            "phone": "(253) 555-1111",
-            "picture": "dog-friend.jpg"
-        },
-
-         {
-             "id": 2,
-             "name": "Peggy",
-             "phone": "(321) 555-2222",
-             "picture": "pug-owner.jpg"
-         },
-
-         {
-             "id": 3,
-             "name": "Alexander",
-             "phone": "(847) 555-3333",
-             "picture": "sunset-dog-owner.jpg"
-         }
-    ]
+  "animals": [
+    {
+      "id": 1,
+      "name": "doodles",
+      "breed": "Poodle",
+      "picture": "poodle.jpg"
+    },
+    {
+      "id": 2,
+      "name": "decker",
+      "breed": "German Shepherd",
+      "picture": "german-shepherd.jpg"
+    },
+    {
+      "id": 3,
+      "name": "esme",
+      "breed": "Pitbull",
+      "picture": "pitbull.jpg"
+    },
+    {
+      "name": "Misha",
+      "breed": "Pug",
+      "picture": "dog.svg",
+      "id": 5
+    },
+    {
+      "name": "Ruffles",
+      "breed": "Golden Retriever",
+      "picture": "dog.svg",
+      "id": 6
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "name": "East Nashville",
+      "hours": "24 hours",
+      "address": "Wishbone Rd",
+      "picture": "doggy.jpg"
+    },
+    {
+      "id": 2,
+      "name": "West Nashville",
+      "hours": "10am to 8pm",
+      "address": "Milkbone Rd",
+      "picture": "pit-bull2.jpg"
+    },
+    {
+      "id": 3,
+      "name": "South Nashville",
+      "hours": "8am to 8pm",
+      "address": "Blue Buffalo Dr",
+      "picture": "help-pitbull.jpg"
+    },
+    {
+      "name": "Clarksville",
+      "address": "123 Pup Way, 89021",
+      "hours": "8am to 10pm",
+      "picture": "form-pug.jpg",
+      "id": 4
+    }
+  ],
+  "employees": [
+    {
+      "id": 1,
+      "name": "Otto",
+      "age": 20,
+      "experience": "5 years",
+      "picture": "employee-dog.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Jasmine",
+      "age": 35,
+      "experience": "1 year",
+      "picture": "dog-simba.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Georgie",
+      "age": 26,
+      "experience": "2.5 years",
+      "picture": "dog-walker.jpg"
+    },
+    {
+      "name": "Paulie",
+      "age": "55",
+      "experience": "3",
+      "picture": "corgi.jpg",
+      "id": 4
+    }
+  ],
+  "owners": [
+    {
+      "id": 1,
+      "name": "Eliza",
+      "phone": "(253) 555-1111",
+      "picture": "dog-friend.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Peggy",
+      "phone": "(321) 555-2222",
+      "picture": "pug-owner.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Alexander",
+      "phone": "(847) 555-3333",
+      "picture": "sunset-dog-owner.jpg"
+    },
+    {
+      "name": "Grace",
+      "phone": "(561)-111-1111",
+      "picture": "bike-dog-owner.jpg",
+      "id": 4
+    }
+  ]
 }

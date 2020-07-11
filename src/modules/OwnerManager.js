@@ -10,9 +10,19 @@ export default {
     },
 
     deleteOwner(id) {
-        return fetch(`${remoteURL}/owners/${id}`,{
+        return fetch(`${remoteURL}/owners/${id}`, {
             method: "DELETE",
         }).then(result => result.json())
         
+    },
+
+    postOwner(newOwner) {
+        return fetch(`${remoteURL}/owners`, {
+            method: "POST",
+            headers: {
+                "Content-type": "application/json"
+            },
+            body: JSON.stringify(newOwner)
+        }).then(data => data.json())
     }
 }

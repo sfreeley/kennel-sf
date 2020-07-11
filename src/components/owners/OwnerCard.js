@@ -1,4 +1,5 @@
 import React from "react";
+import { firstLetterCase } from "../../modules/helpers";
 
 const OwnerCard = (props) => {
     return (
@@ -9,7 +10,7 @@ const OwnerCard = (props) => {
             </picture>
             <h3>
                 Name: <span className="card-ownerName"> 
-                    {props.owner.name}
+                    {firstLetterCase(props.owner.name)}
                 </span>
             </h3>
             <p>Phone: {props.owner.phone} </p>
