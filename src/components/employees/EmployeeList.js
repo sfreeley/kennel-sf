@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import EmployeeManager from "../../modules/EmployeeManager"
 import EmployeeCard from "./EmployeeCard";
 
-const EmployeeList = () => {
+const EmployeeList = (props) => {
     //initial state is empty array
     const [employees, setEmployees] = useState([]);
 
@@ -30,11 +30,20 @@ const EmployeeList = () => {
     }, []);
 
     return(
+        <>
+        <section className="section-content">
+            <button type="button"
+            className="btn"
+            onClick={() => {props.history.push("/employees/new")}}>
+                Add Employee
+            </button>
+        </section>
         <div className="container-cards">
             { employees.map(employee => <EmployeeCard key={employee.id} 
                                                            employee={employee} 
                                                            deleteEmployee={deleteEmployee}/>)}
         </div>
+        </>
     );
 };
 

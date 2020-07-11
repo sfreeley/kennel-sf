@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import LocationManager from "../../modules/LocationManager";
+import { firstLetterCase } from "../../modules/helpers";
 // import "./LocationDetail.css"
 
 const LocationDetail = (props) => {
@@ -38,7 +39,7 @@ const LocationDetail = (props) => {
                 <picture>
                     {location.picture === "" ? undefined : <img src={require(`./${location.picture}`)} alt={location.name} /> } 
                 </picture>
-            <h3> Name: <span style={{ color: "darkslategrey" }}>{location.name}</span>
+    <h3> Name: <span style={{ color: "darkslategrey" }}>{firstLetterCase(location.name)}</span>
             </h3>
             <p>Address: {location.address}</p>
             <p>Hours: {location.hours}</p>

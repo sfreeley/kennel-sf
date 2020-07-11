@@ -1,5 +1,6 @@
 import React, { useState, useEffect} from "react";
 import AnimalManager from "../../modules/AnimalManager";
+import {firstLetterCase} from "../../modules/helpers";
 import "./AnimalDetail.css";
 
 //this component will have the responsibility of rendering the details of the one single animal after the user clicks on the Details button
@@ -40,7 +41,7 @@ const AnimalDetail = (props) => {
                     {animal.picture === "" ? undefined : <img src={require(`/${animal.picture}`)} alt={animal.name} />}
                 </picture>
                 <h3>
-                    Name: <span style={{ color: 'darkslategrey'}}>{animal.name} </span>
+                    Name: <span style={{ color: 'darkslategrey'}}>{firstLetterCase(animal.name)}</span>
                 </h3>
                 <p>Breed: {animal.breed} </p>
                 <button type="button" disabled={isLoading} onClick={handleDelete}>
