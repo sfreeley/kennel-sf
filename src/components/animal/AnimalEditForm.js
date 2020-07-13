@@ -4,7 +4,7 @@ import "./AnimalForm.css";
 
 const AnimalEditForm = (props) => {
     const [animal, setAnimal] = useState({name:"", breed:""});
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
 
     const handleFieldChange = event => {
         const stateToChange = {...animal};
@@ -16,7 +16,7 @@ const AnimalEditForm = (props) => {
     const updateExistingAnimal = event => {
         event.preventDefault();
         //button will be clickable now 
-        setIsLoading(false);
+        setIsLoading(true);
     
 
     //creating our edited animal object that needs to edit by id

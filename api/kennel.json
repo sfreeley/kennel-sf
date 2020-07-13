@@ -21,7 +21,7 @@
     {
       "id": 7,
       "name": "Baxter",
-      "breed": "Jack Russells",
+      "breed": "Jack Russell",
       "picture": "dog.svg"
     }
   ],
@@ -29,8 +29,8 @@
     {
       "id": 1,
       "name": "East Nashville",
-      "hours": "24 hours",
       "address": "Wishbone Rd",
+      "hours": "24 hours",
       "picture": "doggy.jpg"
     },
     {

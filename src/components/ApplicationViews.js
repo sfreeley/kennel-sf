@@ -10,6 +10,7 @@ import AnimalEditForm from "./animal/AnimalEditForm";
 import LocationList from "./locations/LocationList";
 import LocationDetail from "./locations/LocationDetail";
 import LocationForm from "./locations/LocationForm";
+import LocationEditForm from "./locations/LocationEditForm";
 import EmployeeList from "./employees/EmployeeList";
 import EmployeeForm from "./employees/EmployeeForm";
 import OwnerList from "./owners/OwnerList";
@@ -76,12 +77,18 @@ const ApplicationViews = () => {
             render={props => {
                 return (isAuthenticated() ? <LocationList {...props} /> : <Redirect to="/login" /> )
             }}
+            
             />
-            <Route 
+            <Route
+            exact
             path="/locations/:locationId(\d+)"
             render={props => {
-                return <LocationDetail locationId={parseInt(props.match.params.locationId)} 
-                                       {...props}/>
+                return (isAuthenticated() ? <LocationDetail locationId={parseInt(props.match.params.locationId)} {...props} /> : <Redirect to="/login" />)
+            }}
+            />
+            <Route
+            path="/locations/:locationId(\d+)/edit" render={props => {
+                return (isAuthenticated() ? <LocationEditForm {...props} /> : <Redirect to="/login" />)
             }}
             />
             <Route

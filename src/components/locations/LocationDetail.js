@@ -39,7 +39,8 @@ const LocationDetail = (props) => {
                 <picture>
                     {location.picture === "" ? undefined : <img src={require(`./${location.picture}`)} alt={location.name} /> } 
                 </picture>
-    <h3> Name: <span style={{ color: "darkslategrey" }}>{firstLetterCase(location.name)}</span>
+            <h3> 
+            Name: <span style={{ color: "darkslategrey" }}>{firstLetterCase(location.name)}</span>
             </h3>
             <p>Address: {location.address}</p>
             <p>Hours: {location.hours}</p>
