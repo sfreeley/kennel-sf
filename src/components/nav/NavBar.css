@@ -34,7 +34,14 @@ small {
     text-decoration: underline;
     cursor: pointer;
   }
-  
+
+  .nav-link--active {
+    background: #fcbf1e;
+    border-radius: 5px;
+    padding: 5px;
+    pointer-events: none;
+  }
+
   .nav-link:hover {
     color: maroon;
   }

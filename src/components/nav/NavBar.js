@@ -1,6 +1,7 @@
 import React from "react";
 //importing Link will tells what content to load
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { withRouter } from "react-router-dom"
 import "./NavBar.css";
 
 //Link component comes from react router package-- 
@@ -17,29 +18,29 @@ const NavBar = () => {
             <nav>
                 <ul className="container">
                     <li>
-                        <Link className="nav-link" to="/">
+                        <NavLink className="nav-link" activeClassName="nav-link--active" exact={true} to="/">
                             Home
-                </Link>
+                        </NavLink>
                     </li>
                     <li>
-                        <Link className="nav-link" to="/animals">
+                        <NavLink className="nav-link" activeClassName="nav-link--active" to="/animals">
                             Animals
-                </Link>
+                        </NavLink>
                     </li>
                     <li>
-                        <Link className="nav-link" to="/locations">
+                        <NavLink className="nav-link" activeClassName="nav-link--active" to="/locations">
                             Locations
-                </Link>
+                        </NavLink>
                     </li>
                     <li>
-                        <Link className="nav-link" to="/employees">
+                        <NavLink className="nav-link" activeClassName="nav-link--active" to="/employees">
                             Employees
-                </Link>
+                        </NavLink>
                     </li>
                     <li>
-                        <Link className="nav-link" to="/owners">
+                        <NavLink className="nav-link" activeClassName="nav-link--active" to="/owners">
                             Owners
-                </Link>
+                        </NavLink>
                     </li>
                 </ul>
             </nav>
@@ -47,4 +48,4 @@ const NavBar = () => {
     );
 };
 
-export default NavBar;
+export default withRouter(NavBar);

@@ -19,12 +19,6 @@
       "picture": "pitbull.jpg"
     },
     {
-      "name": "Misha",
-      "breed": "Pug",
-      "picture": "dog.svg",
-      "id": 5
-    },
-    {
       "name": "Ruffles",
       "breed": "Golden Retriever",
       "picture": "dog.svg",
