@@ -1,6 +1,6 @@
 import React from "react";
 //importing Link will tells what content to load
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { withRouter } from "react-router-dom"
 import "./NavBar.css";
 

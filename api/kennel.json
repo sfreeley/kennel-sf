@@ -19,10 +19,10 @@
       "picture": "pitbull.jpg"
     },
     {
-      "name": "Ruffles",
-      "breed": "Golden Retriever",
-      "picture": "dog.svg",
-      "id": 6
+      "id": 7,
+      "name": "Baxter",
+      "breed": "Jack Russells",
+      "picture": "dog.svg"
     }
   ],
   "locations": [
@@ -78,9 +78,9 @@
       "picture": "dog-walker.jpg"
     },
     {
-      "name": "Paulie",
+      "name": "Buffy",
       "age": "55",
-      "experience": "3",
+      "experience": "3 years",
       "picture": "corgi.jpg",
       "id": 4
     }

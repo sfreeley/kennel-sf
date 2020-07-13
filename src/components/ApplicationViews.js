@@ -6,6 +6,7 @@ import Login from "./auth/Login";
 import AnimalList from "./animal/AnimalList";
 import AnimalDetail from "./animal/AnimalDetail";
 import AnimalForm from "./animal/AnimalForm";
+import AnimalEditForm from "./animal/AnimalEditForm";
 import LocationList from "./locations/LocationList";
 import LocationDetail from "./locations/LocationDetail";
 import LocationForm from "./locations/LocationForm";
@@ -49,13 +50,18 @@ const ApplicationViews = () => {
             }}
             />
             <Route
+            exact
             path="/animals/:animalId(\d+)"
             render={props => {
                 //pass animalId to AnimalDetailComponent
-                return <AnimalDetail animalId={parseInt(props.match.params.animalId)}
+                return (isAuthenticated() ? <AnimalDetail animalId={parseInt(props.match.params.animalId)} {...props} /> : <Redirect to="/login" />)
                 //AnimalDetail component needs to get router history object so we must pass the props to this component
                 //spread operator copies all Router properties onto AnimalDetail component
-                {...props} />
+            }}
+            />
+            <Route
+            path="/animals/:animalId(\d+)/edit" render={props => {
+                return (isAuthenticated() ? <AnimalEditForm {...props} /> : <Redirect to="/login" />)
             }}
             />
             <Route

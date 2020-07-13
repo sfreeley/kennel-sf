@@ -17,7 +17,7 @@ const EmployeeList = (props) => {
     };
 
    const deleteEmployee = (id) => {
-       EmployeeManager.delete(id)
+       EmployeeManager.deleteEmployee(id)
        .then(() => {
            EmployeeManager.getAllEmployees().then(employeesFromAPI => {
                return setEmployees(employeesFromAPI)
