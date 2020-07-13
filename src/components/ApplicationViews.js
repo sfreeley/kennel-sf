@@ -1,7 +1,8 @@
 //another component that "routes" you to the path that was clicked on in nav bar
-import { Route } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 import React from "react";
 import Home from "./home/Home";
+import Login from "./auth/Login";
 import AnimalList from "./animal/AnimalList";
 import AnimalDetail from "./animal/AnimalDetail";
 import AnimalForm from "./animal/AnimalForm";
@@ -18,21 +19,33 @@ import OwnerForm from "./owners/OwnerForm";
 //after the links are clicked in nav bar -- this will render that specific component in DOM
 
 const ApplicationViews = () => {
+    //checking if credentials are in session storage (returns true or false)
+    const isAuthenticated = () => {
+        return sessionStorage.getItem("credentials") !== null
+    }
+    
     return (
         <React.Fragment>
             <Route
             exact
             path="/"
             render={props => {
-                return <Home />;
+                return (isAuthenticated() ? <Home /> : <Redirect to="/login" />)
             }}
+            />
+            <Route
+            path="/login"
+            component={Login}
             />
             <Route
             exact
             path="/animals"
             render={props => {
                 //giving all properties of Router to AnimalList so that history.push can be utilized
-                return <AnimalList {...props}/>;
+                //isAuthenticated gives boolean value of whether there is the user in session storage
+                //if user is already in session storage, allow user to see content of animal page
+                //if not redirect to login
+                return (isAuthenticated() ?  <AnimalList {...props}/> : <Redirect to="/login" />)
             }}
             />
             <Route
@@ -55,7 +68,7 @@ const ApplicationViews = () => {
             exact
             path="/locations"
             render={props => {
-                return <LocationList {...props} />;
+                return (isAuthenticated() ? <LocationList {...props} /> : <Redirect to="/login" /> )
             }}
             />
             <Route 
@@ -75,7 +88,7 @@ const ApplicationViews = () => {
             exact
             path="/employees"
             render={props => {
-                return <EmployeeList {...props} />;
+                return (isAuthenticated() ? <EmployeeList {...props} /> : <Redirect to="/login" />) 
             }}
             />
             <Route
@@ -88,7 +101,7 @@ const ApplicationViews = () => {
             exact
             path="/owners"
             render={props => {
-                return <OwnerList {...props} />;
+                return (isAuthenticated() ? <OwnerList {...props} /> : <Redirect to="/login" />)
             }}
             />
             <Route 
