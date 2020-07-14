@@ -26,7 +26,13 @@
       "name": "Baxter",
       "breed": "Jack Russell",
       "picture": "dog.svg",
-      "employeeId": 4
+      "employeeId": 2
+    },
+    {
+      "name": "Grace",
+      "breed": "Jack Russell",
+      "picture": "dog.svg",
+      "id": 5
     }
   ],
   "locations": [
@@ -65,28 +71,32 @@
       "name": "Otto",
       "age": 20,
       "experience": "5 years",
-      "picture": "employee-dog.jpg"
+      "picture": "employee-dog.jpg",
+      "locationId": 3
     },
     {
       "id": 2,
       "name": "Jasmine",
       "age": 35,
       "experience": "1 year",
-      "picture": "dog-simba.jpg"
+      "picture": "dog-simba.jpg",
+      "locationId": 2
     },
     {
       "id": 3,
       "name": "Georgie",
       "age": 26,
       "experience": "2.5 years",
-      "picture": "dog-walker.jpg"
+      "picture": "dog-walker.jpg",
+      "locationId": "3"
     },
     {
       "name": "Buffy",
       "age": "45",
       "experience": "3 years",
       "picture": "corgi.jpg",
-      "id": 4
+      "id": 4,
+      "locationId": 1
     }
   ],
   "owners": [

@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import EmployeeManager from "../../modules/EmployeeManager";
+import LocationManager from "../../modules/LocationManager";
 
 const EmployeeEditForm = props => {
     //(1) useState declared and will render whatever is returned (when rendering, initially every value will be empty)
     const [employee, setEmployee] = useState({name: "", age: "", experience: ""});
     const [isLoading, setIsLoading] = useState(false);
+    //locations useState set because there can be multiple locations
+    const [locations, setLocations] = useState([]);
 
     //(5) when user types this will get initiated 
     const handleFieldChange = event => {
@@ -27,7 +30,8 @@ const EmployeeEditForm = props => {
             name: employee.name,
             age: employee.age,
             experience: employee.experience,
-            picture: employee.picture
+            picture: employee.picture,
+            locationId: employee.locationId
         };
 
         //passing in editedEmployee object into PUT function from EmployeeManager
@@ -43,9 +47,13 @@ const EmployeeEditForm = props => {
         EmployeeManager.getEmployee(props.match.params.employeeId)
         //then state changes and re-renders the page to show the employee object you want to edit 
             .then(employee => {
-                setEmployee(employee);
-                //user can make edits and button is ok to click to submit form
-                setIsLoading(false);
+                LocationManager.getAllLocations()
+                .then(location => {
+                    setLocations(location)
+                    setEmployee(employee);
+                    //user can make edits and button is ok to click to submit form
+                    setIsLoading(false);
+                })
             })
     }, [props.match.params.employeeId]);
 
@@ -86,6 +94,19 @@ const EmployeeEditForm = props => {
                     />
                     <label htmlFor="experience">Employee Experience</label>
                 </div>
+                <select
+                    className="form-control"
+                        id="locationId"
+                        value={employee.locationId}
+                        onChange={handleFieldChange}
+                         >
+                        {locations.map(location =>
+                        <option key={location.id} value={location.id}>
+                        {location.name}
+                        </option>
+                         )}
+                    </select>
+                    <label htmlFor="employeeId">Employee</label>
                     <button 
                     type="button" disabled={isLoading}
                     //user clicks this submit button after editing form fields and will make updateExistingEmployee function above run
