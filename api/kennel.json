@@ -4,25 +4,29 @@
       "id": 1,
       "name": "doodles",
       "breed": "Poodle",
-      "picture": "poodle.jpg"
+      "picture": "poodle.jpg",
+      "employeeId": 2
     },
     {
       "id": 2,
       "name": "decker",
       "breed": "German Shepherd",
-      "picture": "german-shepherd.jpg"
+      "picture": "german-shepherd.jpg",
+      "employeeId": 3
     },
     {
       "id": 3,
       "name": "esme",
       "breed": "Pitbull",
-      "picture": "pitbull.jpg"
+      "picture": "pitbull.jpg",
+      "employeeId": 1
     },
     {
+      "id": 4,
       "name": "Baxter",
       "breed": "Jack Russell",
       "picture": "dog.svg",
-      "id": 4
+      "employeeId": 4
     }
   ],
   "locations": [

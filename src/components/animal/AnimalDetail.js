@@ -41,23 +41,20 @@ const AnimalDetail = (props) => {
         <div className="card">
             <img src={require(`./dog-house.png`)} alt="empty dog-house"/>
             <h3>This animal has already been discharged</h3>
-        </div>  :
-
-    <div className="card">
-        <div className="card-content">
-            <picture>
-                {animal.picture === "" ? undefined : <img src={require(`./${animal.picture}`)} alt={animal.name} />}
-            </picture>
-            <h3>
-                Name: <span style={{ color: 'darkslategrey'}}>{firstLetterCase(animal.name)}</span>
-            </h3>
-            <p>Breed: {animal.breed} </p>
-            <button type="button" disabled={isLoading} onClick={handleDelete}>
-                Discharge
-            </button>
-        </div>
-    </div>     
-    
+        </div>  : <div className="card">
+                    <div className="card-content">
+                        <picture>
+                            {animal.picture === "" ? undefined : <img src={require(`./${animal.picture}`)} alt={animal.name} />}
+                        </picture>
+                        <h3>
+                            Name: <span style={{ color: 'darkslategrey'}}>{firstLetterCase(animal.name)}</span>
+                        </h3>
+                        <p>Breed: {animal.breed} </p>
+                        <button type="button" disabled={isLoading} onClick={handleDelete}>
+                            Discharge
+                        </button>
+                    </div>
+                </div>     
     );
     
 }

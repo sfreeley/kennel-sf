@@ -33,6 +33,12 @@ export default {
             },
             body: JSON.stringify(editedEmployee)
         }).then(data => data.json());
+    },
+
+    //this is getting the employees with which animals they are taking care of
+    getWithAnimals(id) {
+        return fetch(`${remoteURL}/employees/${id}?_embed=animals`)
+            .then(result => result.json())
     }
 
 }

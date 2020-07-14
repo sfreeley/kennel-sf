@@ -16,6 +16,10 @@ const EmployeeCard = (props) => {
             <p>Age: {props.employee.age} </p>
             <p>Experience: {props.employee.experience} </p>
             <button type="button"
+                onClick={() => {props.history.push(`/employees/${props.employee.id}/details`)}}>
+                    Details
+                </button>
+            <button type="button"
                 onClick={() => props.history.push(`/employees/${props.employee.id}/edit`)}>
                     Edit
                 </button>

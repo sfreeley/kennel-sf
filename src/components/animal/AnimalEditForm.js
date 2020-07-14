@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import AnimalManager from "../../modules/AnimalManager";
 import "./AnimalForm.css";
+import EmployeeManager from "../../modules/EmployeeManager";
 
 const AnimalEditForm = (props) => {
     const [animal, setAnimal] = useState({name:"", breed:""});
     const [isLoading, setIsLoading] = useState(false);
+    //setting state for employees 
+    const [employees, setEmployees] = useState([]);
 
     const handleFieldChange = event => {
         const stateToChange = {...animal};
@@ -24,7 +27,8 @@ const AnimalEditForm = (props) => {
         id: props.match.params.animalId,
         name: animal.name,
         breed: animal.breed,
-        picture: animal.picture
+        picture: animal.picture,
+        employeeId: parseInt(animal.employeeId)
     };
 
     //PUT (ie edit) the edited animal object into database and then post it to animal list page
@@ -40,8 +44,17 @@ const AnimalEditForm = (props) => {
         //make button unclickable because will be retrieving data and do not want
         //user to be able to click continously
         .then(animal => {
-            setAnimal(animal);
-            setIsLoading(false)
+            //also go get all employees
+            EmployeeManager.getAllEmployees()
+            //once employee information received, set previously empty array of employees to information received
+            //same with animals array
+            //setting new state will cause re-rendering of form below
+            .then(employee => {
+                setEmployees(employee);
+                setAnimal(animal);
+                setIsLoading(false);
+            });
+            
         });
         //need this in dependency array because need to watch for change in animalId so can re-render the animal object
     }, [props.match.params.animalId]);
@@ -71,6 +84,21 @@ const AnimalEditForm = (props) => {
                     />
                     <label htmlFor="breed">Breed</label>
                 </div>
+                <select
+                    className="form-control"
+                    id="employeeId"
+                    value={animal.employeeId}
+                    // will cause handleFieldChange to run and re-render each time user changes employee from drop down
+                    onChange={handleFieldChange}
+                    >
+                    {/*map through employees array to display all the employees in dropdown menu */}
+                    {employees.map(employee => 
+                        <option key={employee.id} value={employee.id} >
+                            {employee.name}
+                        </option>
+                    )}
+                    </select>
+                    <label htmlFor="employeeId"> Employee </label>
                 <div className="alignRight">
                     <button
                     type="button" disabled={isLoading}
