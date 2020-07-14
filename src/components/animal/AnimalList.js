@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import AnimalCard from "./AnimalCard";
-import AnimalManager from "../../modules/AnimalManager"
+import AnimalManager from "../../modules/AnimalManager";
+
 
 const AnimalList = (props) => {
     //the initial state is an empty array
