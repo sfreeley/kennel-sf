@@ -13,8 +13,10 @@ import LocationForm from "./locations/LocationForm";
 import LocationEditForm from "./locations/LocationEditForm";
 import EmployeeList from "./employees/EmployeeList";
 import EmployeeForm from "./employees/EmployeeForm";
+import EmployeeEditForm from "./employees/EmployeeEditForm";
 import OwnerList from "./owners/OwnerList";
 import OwnerForm from "./owners/OwnerForm";
+import OwnerEditForm from "./owners/OwnerEditForm";
 
 
 //this Application Views component will be defining HOW the application responds
@@ -105,6 +107,11 @@ const ApplicationViews = () => {
             }}
             />
             <Route
+            path="/employees/:employeeId(\d+)/edit" render={props => {
+                return (isAuthenticated() ? <EmployeeEditForm {...props} /> : <Redirect to="/login" />)
+            }}
+            />
+            <Route
             path="/employees/new"
             render={props => {
                 return <EmployeeForm {...props} />
@@ -115,6 +122,11 @@ const ApplicationViews = () => {
             path="/owners"
             render={props => {
                 return (isAuthenticated() ? <OwnerList {...props} /> : <Redirect to="/login" />)
+            }}
+            />
+            <Route
+            path="/owners/:ownerId(\d+)/edit" render={props => {
+                return (isAuthenticated() ? <OwnerEditForm {...props} /> : <Redirect to="/login" />)
             }}
             />
             <Route 

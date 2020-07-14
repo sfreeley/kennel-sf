@@ -41,7 +41,9 @@ const EmployeeList = (props) => {
         <div className="container-cards">
             { employees.map(employee => <EmployeeCard key={employee.id} 
                                                            employee={employee} 
-                                                           deleteEmployee={deleteEmployee}/>)}
+                                                           deleteEmployee={deleteEmployee}
+                                                           {...props}
+                                                           />)}
         </div>
         </>
     );

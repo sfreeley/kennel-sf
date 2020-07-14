@@ -19,10 +19,10 @@
       "picture": "pitbull.jpg"
     },
     {
-      "id": 7,
       "name": "Baxter",
       "breed": "Jack Russell",
-      "picture": "dog.svg"
+      "picture": "dog.svg",
+      "id": 4
     }
   ],
   "locations": [
@@ -48,11 +48,11 @@
       "picture": "help-pitbull.jpg"
     },
     {
+      "id": 4,
       "name": "Clarksville",
-      "address": "123 Pup Way, 89021",
+      "address": "123 Pup Way, 89022",
       "hours": "8am to 10pm",
-      "picture": "form-pug.jpg",
-      "id": 4
+      "picture": "form-pug.jpg"
     }
   ],
   "employees": [
@@ -79,7 +79,7 @@
     },
     {
       "name": "Buffy",
-      "age": "55",
+      "age": "45",
       "experience": "3 years",
       "picture": "corgi.jpg",
       "id": 4
@@ -105,7 +105,7 @@
       "picture": "sunset-dog-owner.jpg"
     },
     {
-      "name": "Grace",
+      "name": "Angelica",
       "phone": "(561)-111-1111",
       "picture": "bike-dog-owner.jpg",
       "id": 4
