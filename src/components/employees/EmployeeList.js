@@ -17,7 +17,7 @@ const EmployeeList = (props) => {
     };
 
    const deleteEmployee = (id) => {
-       EmployeeManager.delete(id)
+       EmployeeManager.deleteEmployee(id)
        .then(() => {
            EmployeeManager.getAllEmployees().then(employeesFromAPI => {
                return setEmployees(employeesFromAPI)
@@ -41,7 +41,9 @@ const EmployeeList = (props) => {
         <div className="container-cards">
             { employees.map(employee => <EmployeeCard key={employee.id} 
                                                            employee={employee} 
-                                                           deleteEmployee={deleteEmployee}/>)}
+                                                           deleteEmployee={deleteEmployee}
+                                                           {...props}
+                                                           />)}
         </div>
         </>
     );

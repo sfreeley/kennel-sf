@@ -6,13 +6,17 @@ import Login from "./auth/Login";
 import AnimalList from "./animal/AnimalList";
 import AnimalDetail from "./animal/AnimalDetail";
 import AnimalForm from "./animal/AnimalForm";
+import AnimalEditForm from "./animal/AnimalEditForm";
 import LocationList from "./locations/LocationList";
 import LocationDetail from "./locations/LocationDetail";
 import LocationForm from "./locations/LocationForm";
+import LocationEditForm from "./locations/LocationEditForm";
 import EmployeeList from "./employees/EmployeeList";
 import EmployeeForm from "./employees/EmployeeForm";
+import EmployeeEditForm from "./employees/EmployeeEditForm";
 import OwnerList from "./owners/OwnerList";
 import OwnerForm from "./owners/OwnerForm";
+import OwnerEditForm from "./owners/OwnerEditForm";
 
 
 //this Application Views component will be defining HOW the application responds
@@ -49,13 +53,18 @@ const ApplicationViews = () => {
             }}
             />
             <Route
+            exact
             path="/animals/:animalId(\d+)"
             render={props => {
                 //pass animalId to AnimalDetailComponent
-                return <AnimalDetail animalId={parseInt(props.match.params.animalId)}
+                return (isAuthenticated() ? <AnimalDetail animalId={parseInt(props.match.params.animalId)} {...props} /> : <Redirect to="/login" />)
                 //AnimalDetail component needs to get router history object so we must pass the props to this component
                 //spread operator copies all Router properties onto AnimalDetail component
-                {...props} />
+            }}
+            />
+            <Route
+            path="/animals/:animalId(\d+)/edit" render={props => {
+                return (isAuthenticated() ? <AnimalEditForm {...props} /> : <Redirect to="/login" />)
             }}
             />
             <Route
@@ -70,12 +79,18 @@ const ApplicationViews = () => {
             render={props => {
                 return (isAuthenticated() ? <LocationList {...props} /> : <Redirect to="/login" /> )
             }}
+            
             />
-            <Route 
+            <Route
+            exact
             path="/locations/:locationId(\d+)"
             render={props => {
-                return <LocationDetail locationId={parseInt(props.match.params.locationId)} 
-                                       {...props}/>
+                return (isAuthenticated() ? <LocationDetail locationId={parseInt(props.match.params.locationId)} {...props} /> : <Redirect to="/login" />)
+            }}
+            />
+            <Route
+            path="/locations/:locationId(\d+)/edit" render={props => {
+                return (isAuthenticated() ? <LocationEditForm {...props} /> : <Redirect to="/login" />)
             }}
             />
             <Route
@@ -92,6 +107,11 @@ const ApplicationViews = () => {
             }}
             />
             <Route
+            path="/employees/:employeeId(\d+)/edit" render={props => {
+                return (isAuthenticated() ? <EmployeeEditForm {...props} /> : <Redirect to="/login" />)
+            }}
+            />
+            <Route
             path="/employees/new"
             render={props => {
                 return <EmployeeForm {...props} />
@@ -102,6 +122,11 @@ const ApplicationViews = () => {
             path="/owners"
             render={props => {
                 return (isAuthenticated() ? <OwnerList {...props} /> : <Redirect to="/login" />)
+            }}
+            />
+            <Route
+            path="/owners/:ownerId(\d+)/edit" render={props => {
+                return (isAuthenticated() ? <OwnerEditForm {...props} /> : <Redirect to="/login" />)
             }}
             />
             <Route 

@@ -19,18 +19,18 @@
       "picture": "pitbull.jpg"
     },
     {
-      "name": "Ruffles",
-      "breed": "Golden Retriever",
+      "name": "Baxter",
+      "breed": "Jack Russell",
       "picture": "dog.svg",
-      "id": 6
+      "id": 4
     }
   ],
   "locations": [
     {
       "id": 1,
       "name": "East Nashville",
-      "hours": "24 hours",
       "address": "Wishbone Rd",
+      "hours": "24 hours",
       "picture": "doggy.jpg"
     },
     {
@@ -48,11 +48,11 @@
       "picture": "help-pitbull.jpg"
     },
     {
+      "id": 4,
       "name": "Clarksville",
-      "address": "123 Pup Way, 89021",
+      "address": "123 Pup Way, 89022",
       "hours": "8am to 10pm",
-      "picture": "form-pug.jpg",
-      "id": 4
+      "picture": "form-pug.jpg"
     }
   ],
   "employees": [
@@ -78,9 +78,9 @@
       "picture": "dog-walker.jpg"
     },
     {
-      "name": "Paulie",
-      "age": "55",
-      "experience": "3",
+      "name": "Buffy",
+      "age": "45",
+      "experience": "3 years",
       "picture": "corgi.jpg",
       "id": 4
     }
@@ -105,7 +105,7 @@
       "picture": "sunset-dog-owner.jpg"
     },
     {
-      "name": "Grace",
+      "name": "Angelica",
       "phone": "(561)-111-1111",
       "picture": "bike-dog-owner.jpg",
       "id": 4

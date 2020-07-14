@@ -24,5 +24,15 @@ export default {
             },
             body: JSON.stringify(newOwner)
         }).then(data => data.json())
+    },
+
+    updateOwner(editedOwner) {
+        return fetch(`${remoteURL}/owners/${editedOwner.id}`, {
+            method: "PUT",
+            headers: {
+                "Content-type": "application/json"
+            },
+            body: JSON.stringify(editedOwner)
+        }).then(data => data.json())
     }
 }

@@ -6,7 +6,7 @@ const EmployeeCard = (props) => {
         <div className="card">
         <div className="card-content">
             <picture>
-                <img src={require(`./${props.employee.picture}`)} alt="My Dog" />
+                <img src={require(`./${props.employee.picture}`)} alt={props.employee.name} />
             </picture>
             <h3>
                 Name: <span className="card-employeeName">
@@ -15,6 +15,10 @@ const EmployeeCard = (props) => {
             </h3>
             <p>Age: {props.employee.age} </p>
             <p>Experience: {props.employee.experience} </p>
+            <button type="button"
+                onClick={() => props.history.push(`/employees/${props.employee.id}/edit`)}>
+                    Edit
+                </button>
             <button type="button" onClick={() => props.deleteEmployee(props.employee.id)}>Discharge</button>
         </div>
     </div>
