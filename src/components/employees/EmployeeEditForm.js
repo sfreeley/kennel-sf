@@ -31,7 +31,7 @@ const EmployeeEditForm = props => {
             age: employee.age,
             experience: employee.experience,
             picture: employee.picture,
-            locationId: employee.locationId
+            locationId: parseInt(employee.locationId)
         };
 
         //passing in editedEmployee object into PUT function from EmployeeManager
@@ -93,8 +93,7 @@ const EmployeeEditForm = props => {
                     value={employee.experience}
                     />
                     <label htmlFor="experience">Employee Experience</label>
-                </div>
-                <select
+                    <select
                     className="form-control"
                         id="locationId"
                         value={employee.locationId}
@@ -106,7 +105,8 @@ const EmployeeEditForm = props => {
                         </option>
                          )}
                     </select>
-                    <label htmlFor="employeeId">Employee</label>
+                    <label htmlFor="locationId">Location</label>
+                </div>
                     <button 
                     type="button" disabled={isLoading}
                     //user clicks this submit button after editing form fields and will make updateExistingEmployee function above run

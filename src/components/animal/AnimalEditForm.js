@@ -28,7 +28,8 @@ const AnimalEditForm = (props) => {
         name: animal.name,
         breed: animal.breed,
         picture: animal.picture,
-        employeeId: parseInt(animal.employeeId)
+        employeeId: parseInt(animal.employeeId),
+        
     };
 
     //PUT (ie edit) the edited animal object into database and then post it to animal list page
@@ -83,8 +84,7 @@ const AnimalEditForm = (props) => {
                     value={animal.breed}
                     />
                     <label htmlFor="breed">Breed</label>
-                </div>
-                <select
+                    <select
                     className="form-control"
                     id="employeeId"
                     value={animal.employeeId}
@@ -98,7 +98,9 @@ const AnimalEditForm = (props) => {
                         </option>
                     )}
                     </select>
-                    <label htmlFor="employeeId"> Employee </label>
+                    <label htmlFor="employeeId"> Employee Caretaker </label>
+                </div>
+                
                 <div className="alignRight">
                     <button
                     type="button" disabled={isLoading}

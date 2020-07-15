@@ -19,7 +19,7 @@ const AnimalDetail = (props) => {
                 id: animal.id,
                 name: animal.name,
                 breed: animal.breed,
-                picture: animal.picture
+                picture: animal.picture 
             });
             //once useEffect has been activated after initial render (ie when all values are still empty)
             //..then set isLoading to false so the user can click the button when there is information 
