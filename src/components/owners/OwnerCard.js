@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { firstLetterCase } from "../../modules/helpers";
 
 const OwnerCard = (props) => {
@@ -14,6 +15,9 @@ const OwnerCard = (props) => {
                 </span>
             </h3>
             <p>Phone: {props.owner.phone} </p>
+            <Link to={`/owners/${props.owner.id}/details`}>
+                <button>Details</button>
+            </Link>
             <button type="button"
                 onClick={() => props.history.push(`/owners/${props.owner.id}/edit`)}>
                     Edit

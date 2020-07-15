@@ -4,25 +4,37 @@
       "id": 1,
       "name": "doodles",
       "breed": "Poodle",
-      "picture": "poodle.jpg"
+      "picture": "poodle.jpg",
+      "employeeId": 2,
+      "ownerId": 1
+      
     },
     {
       "id": 2,
       "name": "decker",
       "breed": "German Shepherd",
-      "picture": "german-shepherd.jpg"
+      "picture": "german-shepherd.jpg",
+      "employeeId": 3,
+      "ownerId": 1
+      
     },
     {
       "id": 3,
       "name": "esme",
       "breed": "Pitbull",
-      "picture": "pitbull.jpg"
+      "picture": "pitbull.jpg",
+      "employeeId": 4,
+      "ownerId": 2
+      
     },
     {
+      "id": 4,
       "name": "Baxter",
       "breed": "Jack Russell",
       "picture": "dog.svg",
-      "id": 4
+      "employeeId": 1,
+      "ownerId": 4
+      
     }
   ],
   "locations": [
@@ -61,28 +73,32 @@
       "name": "Otto",
       "age": 20,
       "experience": "5 years",
-      "picture": "employee-dog.jpg"
+      "picture": "employee-dog.jpg",
+      "locationId": 2
     },
     {
       "id": 2,
       "name": "Jasmine",
       "age": 35,
       "experience": "1 year",
-      "picture": "dog-simba.jpg"
+      "picture": "dog-simba.jpg",
+      "locationId": 3
     },
     {
       "id": 3,
       "name": "Georgie",
       "age": 26,
       "experience": "2.5 years",
-      "picture": "dog-walker.jpg"
+      "picture": "dog-walker.jpg",
+      "locationId": "3"
     },
     {
       "name": "Buffy",
       "age": "45",
       "experience": "3 years",
       "picture": "corgi.jpg",
-      "id": 4
+      "id": 4,
+      "locationId": 1
     }
   ],
   "owners": [
@@ -91,24 +107,28 @@
       "name": "Eliza",
       "phone": "(253) 555-1111",
       "picture": "dog-friend.jpg"
+      
     },
     {
       "id": 2,
       "name": "Peggy",
       "phone": "(321) 555-2222",
       "picture": "pug-owner.jpg"
+      
     },
     {
       "id": 3,
       "name": "Alexander",
       "phone": "(847) 555-3333",
       "picture": "sunset-dog-owner.jpg"
+      
     },
     {
       "name": "Angelica",
       "phone": "(561)-111-1111",
       "picture": "bike-dog-owner.jpg",
       "id": 4
+      
     }
   ]
 }

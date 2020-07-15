@@ -14,7 +14,7 @@ const LocationCard = (props) => {
             </h3>
             <p>Address: {props.locations.address} </p>
             <p>Hours: {props.locations.hours} </p>
-            <Link to={`/locations/${props.locations.id}`}>
+            <Link to={`/locations/${props.locations.id}/details`}>
                 <button>Details</button>
             </Link>
             <button type="button"

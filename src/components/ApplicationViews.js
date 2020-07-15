@@ -11,12 +11,15 @@ import LocationList from "./locations/LocationList";
 import LocationDetail from "./locations/LocationDetail";
 import LocationForm from "./locations/LocationForm";
 import LocationEditForm from "./locations/LocationEditForm";
+import LocationWithEmployees from "./locations/LocationWithEmployees";
 import EmployeeList from "./employees/EmployeeList";
 import EmployeeForm from "./employees/EmployeeForm";
 import EmployeeEditForm from "./employees/EmployeeEditForm";
+import EmployeeWithAnimals from "./employees/EmployeeWithAnimals";
 import OwnerList from "./owners/OwnerList";
 import OwnerForm from "./owners/OwnerForm";
 import OwnerEditForm from "./owners/OwnerEditForm";
+import OwnerWithAnimals from "./owners/OwnerWithAnimals";
 
 //this Application Views component will be defining HOW the application responds
 //after the links are clicked in nav bar -- this will render that specific component in DOM
@@ -78,13 +81,17 @@ const ApplicationViews = () => {
             render={props => {
                 return (isAuthenticated() ? <LocationList {...props} /> : <Redirect to="/login" /> )
             }}
-            
             />
-            <Route
+            {/* <Route
             exact
             path="/locations/:locationId(\d+)"
             render={props => {
                 return (isAuthenticated() ? <LocationDetail locationId={parseInt(props.match.params.locationId)} {...props} /> : <Redirect to="/login" />)
+            }}
+            /> */}
+            <Route
+            path="/locations/:locationId(\d+)/details" render={props => {
+                return <LocationWithEmployees {...props} />
             }}
             />
             <Route
@@ -106,6 +113,12 @@ const ApplicationViews = () => {
             }}
             />
             <Route
+            path="/employees/:employeeId(\d+)/details"
+            render={props => {
+                return  <EmployeeWithAnimals {...props} /> 
+            }}
+            />
+            <Route
             path="/employees/:employeeId(\d+)/edit" render={props => {
                 return (isAuthenticated() ? <EmployeeEditForm {...props} /> : <Redirect to="/login" />)
             }}
@@ -121,6 +134,11 @@ const ApplicationViews = () => {
             path="/owners"
             render={props => {
                 return (isAuthenticated() ? <OwnerList {...props} /> : <Redirect to="/login" />)
+            }}
+            />
+            <Route
+            path="/owners/:ownerId(\d+)/details" render={props => {
+                return <OwnerWithAnimals {...props} />
             }}
             />
             <Route

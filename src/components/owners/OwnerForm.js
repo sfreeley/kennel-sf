@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import OwnerManager from "../../modules/OwnerManager";
+import AnimalManager from "../../modules/AnimalManager";
 
 const OwnerForm = props => {
     const [owner, setOwner] = useState({name: "", phone: ""});
     const [isLoading, setIsLoading] = useState(false);
-
+    
     const handleFieldChange = event => {
         //stateToChange variable has value of owner object with all properties
         //and with state change will add picture
@@ -25,6 +26,7 @@ const OwnerForm = props => {
            .then(() => {props.history.push("/owners")})
         }
     }
+
         return(
             <>
             <form>
@@ -47,6 +49,7 @@ const OwnerForm = props => {
                         />
                         <label htmlFor="phone">Phone Number</label>
                         <small>Format: (123)-XXX-XXXX</small>
+                        
                     </div>
                     <div className="alignRight">
                         <button

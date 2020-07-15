@@ -37,5 +37,11 @@ export default {
             },
             body: JSON.stringify(editedLocation)
         }).then(data => data.json())
+    },
+
+    //this GET function will retrieve employees as children of 1 location
+    getWithEmployees(id) {
+        return fetch(`${remoteURL}/locations/${id}?_embed=employees`)
+            .then(data => data.json())
     }
 }
