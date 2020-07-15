@@ -18,7 +18,6 @@ import OwnerList from "./owners/OwnerList";
 import OwnerForm from "./owners/OwnerForm";
 import OwnerEditForm from "./owners/OwnerEditForm";
 
-
 //this Application Views component will be defining HOW the application responds
 //after the links are clicked in nav bar -- this will render that specific component in DOM
 

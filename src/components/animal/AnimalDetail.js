@@ -16,6 +16,7 @@ const AnimalDetail = (props) => {
         .then(animal => {
             console.log(animal)
             setAnimal({
+                id: animal.id,
                 name: animal.name,
                 breed: animal.breed,
                 picture: animal.picture
@@ -32,24 +33,33 @@ const AnimalDetail = (props) => {
         setIsLoading(true);
         //delete based on animalId then redirect user to animal list
         AnimalManager.delete(props.animalId).then(() => props.history.push("/animals"))
+
     }
 
     return(
+        animal.id === undefined ? 
         <div className="card">
-            <div className="card-content">
-                <picture>
-                    {animal.picture === "" ? undefined : <img src={require(`/${animal.picture}`)} alt={animal.name} />}
-                </picture>
-                <h3>
-                    Name: <span style={{ color: 'darkslategrey'}}>{firstLetterCase(animal.name)}</span>
-                </h3>
-                <p>Breed: {animal.breed} </p>
-                <button type="button" disabled={isLoading} onClick={handleDelete}>
-                    Discharge
-                </button>
-            </div>
+            <img src={require(`./dog-house.png`)} alt="empty dog-house"/>
+            <h3>This animal has already been discharged</h3>
+        </div>  :
+
+    <div className="card">
+        <div className="card-content">
+            <picture>
+                {animal.picture === "" ? undefined : <img src={require(`./${animal.picture}`)} alt={animal.name} />}
+            </picture>
+            <h3>
+                Name: <span style={{ color: 'darkslategrey'}}>{firstLetterCase(animal.name)}</span>
+            </h3>
+            <p>Breed: {animal.breed} </p>
+            <button type="button" disabled={isLoading} onClick={handleDelete}>
+                Discharge
+            </button>
         </div>
+    </div>     
+    
     );
+    
 }
 
 export default AnimalDetail
