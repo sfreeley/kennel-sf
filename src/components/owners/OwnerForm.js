@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import OwnerManager from "../../modules/OwnerManager";
-import AnimalManager from "../../modules/AnimalManager";
+
 
 const OwnerForm = props => {
     const [owner, setOwner] = useState({name: "", phone: ""});

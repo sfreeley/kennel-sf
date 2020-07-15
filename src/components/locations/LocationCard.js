@@ -5,7 +5,7 @@ import { firstLetterCase } from "../../modules/helpers";
 const LocationCard = (props) => {
     return (
         <div className="card">
-        <div className="card-content">
+            <div className="card-content">
             <picture>
                <img src={require(`./${props.locations.picture}`)} alt={props.locations.name} />
             </picture>
@@ -14,14 +14,17 @@ const LocationCard = (props) => {
             </h3>
             <p>Address: {props.locations.address} </p>
             <p>Hours: {props.locations.hours} </p>
-            <Link to={`/locations/${props.locations.id}/details`}>
+            
+             <Link to={`/locations/${props.locations.id}/details`}>
                 <button>Details</button>
-            </Link>
-            <button type="button"
+            </Link> 
+           
+             <button type="button"
             onClick={() => props.history.push(`/locations/${props.locations.id}/edit`)}>
                 Edit
-            </button>
+            </button> 
             <button type="button" onClick={() => {props.deleteLocation(props.locations.id)}}>Remove</button>
+             
         </div>
     </div>
 

@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 
 const Login = props => {
+    const setUser = props.setUser;
+    const setLocalStorage = props.setLocalStorage
+    // const setLocalStorage = props.setLocalStorage;
     const [credentials, setCredentials] = useState({email: "", password: ""});
     const [isChecked, setIsChecked] = useState(false)
     //update state whenever input field is edited
@@ -9,13 +12,12 @@ const Login = props => {
         stateToChange[event.target.id] = event.target.value;
         //change state based on what the user types (ie change values of properties that coincide with the id of the input field, name and password)
         setCredentials(stateToChange)
-          
     };
-
+    // localStorage.setItem("credentials", JSON.stringify(credentials))
     const handleLogin = event => {
         event.preventDefault();
         //if checkbox is checked, set user login info into localStorage, if checkbox not checked, only set in sessionStorage
-        isChecked ? localStorage.setItem("credentials", JSON.stringify(credentials)) : sessionStorage.setItem("credentials", JSON.stringify(credentials))
+        isChecked ? setLocalStorage(credentials) : setUser(credentials);
         props.history.push("/")
     };
 
