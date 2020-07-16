@@ -24,11 +24,10 @@ import OwnerWithAnimals from "./owners/OwnerWithAnimals";
 //this Application Views component will be defining HOW the application responds
 //after the links are clicked in nav bar -- this will render that specific component in DOM
 
-const ApplicationViews = () => {
-    //checking if credentials are in session storage (returns true or false)
-    const isAuthenticated = () => {
-        return sessionStorage.getItem("credentials") !== null
-    }
+const ApplicationViews = (props) => {
+    const hasUser = props.hasUser;
+    const setUser = props.setUser;
+    const setLocalStorage = props.setLocalStorage
     
     return (
         <React.Fragment>
@@ -36,22 +35,25 @@ const ApplicationViews = () => {
             exact
             path="/"
             render={props => {
-                return (isAuthenticated() ? <Home /> : <Redirect to="/login" />)
+                return <Home /> 
             }}
             />
             <Route
             path="/login"
-            component={Login}
+            render={props => {
+                //pass setUser function to login component
+                return <Login setUser={setUser} {...props} setLocalStorage={setLocalStorage}  />
+            }}
             />
             <Route
             exact
             path="/animals"
             render={props => {
-                //giving all properties of Router to AnimalList so that history.push can be utilized
-                //isAuthenticated gives boolean value of whether there is the user in session storage
-                //if user is already in session storage, allow user to see content of animal page
-                //if not redirect to login
-                return (isAuthenticated() ?  <AnimalList {...props}/> : <Redirect to="/login" />)
+               if (hasUser) {
+                   return <AnimalList {...props}/>
+               } else {
+                   return <Redirect to="/login" />
+               }
             }}
             />
             <Route
@@ -59,14 +61,14 @@ const ApplicationViews = () => {
             path="/animals/:animalId(\d+)"
             render={props => {
                 //pass animalId to AnimalDetailComponent
-                return (isAuthenticated() ? <AnimalDetail animalId={parseInt(props.match.params.animalId)} {...props} /> : <Redirect to="/login" />)
+                return (hasUser ? <AnimalDetail animalId={parseInt(props.match.params.animalId)} {...props} /> : <Redirect to="/login" />)
                 //AnimalDetail component needs to get router history object so we must pass the props to this component
                 //spread operator copies all Router properties onto AnimalDetail component
             }}
             />
             <Route
             path="/animals/:animalId(\d+)/edit" render={props => {
-                return (isAuthenticated() ? <AnimalEditForm {...props} /> : <Redirect to="/login" />)
+                return <AnimalEditForm {...props} />
             }}
             />
             <Route
@@ -79,7 +81,7 @@ const ApplicationViews = () => {
             exact
             path="/locations"
             render={props => {
-                return (isAuthenticated() ? <LocationList {...props} /> : <Redirect to="/login" /> )
+                return <LocationList {...props} /> 
             }}
             />
             {/* <Route
@@ -91,65 +93,65 @@ const ApplicationViews = () => {
             /> */}
             <Route
             path="/locations/:locationId(\d+)/details" render={props => {
-                return <LocationWithEmployees {...props} />
+                return (hasUser ? <LocationWithEmployees {...props} /> : <Redirect to="/login" />)
             }}
             />
             <Route
             path="/locations/:locationId(\d+)/edit" render={props => {
-                return (isAuthenticated() ? <LocationEditForm {...props} /> : <Redirect to="/login" />)
+                return (hasUser ? <LocationEditForm {...props} /> : <Redirect to="/login" />)
             }}
             />
             <Route
             path="/locations/new"
             render={props => {
-                return <LocationForm {...props} />
+                return (hasUser ? <LocationForm {...props} /> : <Redirect to="/login" />)
             }}
             />
             <Route
             exact
             path="/employees"
             render={props => {
-                return (isAuthenticated() ? <EmployeeList {...props} /> : <Redirect to="/login" />) 
+                return (hasUser ? <EmployeeList {...props} /> : <Redirect to="/login" />) 
             }}
             />
             <Route
             path="/employees/:employeeId(\d+)/details"
             render={props => {
-                return  <EmployeeWithAnimals {...props} /> 
+                return (hasUser ? <EmployeeWithAnimals {...props} /> : <Redirect to="/login" />)
             }}
             />
             <Route
             path="/employees/:employeeId(\d+)/edit" render={props => {
-                return (isAuthenticated() ? <EmployeeEditForm {...props} /> : <Redirect to="/login" />)
+                return (hasUser ? <EmployeeEditForm {...props} /> : <Redirect to="/login" />)
             }}
             />
             <Route
             path="/employees/new"
             render={props => {
-                return <EmployeeForm {...props} />
+                return (hasUser ? <EmployeeForm {...props} /> : <Redirect to="/login" /> ) 
             }}
             />
             <Route
             exact
             path="/owners"
             render={props => {
-                return (isAuthenticated() ? <OwnerList {...props} /> : <Redirect to="/login" />)
+                return (hasUser ? <OwnerList {...props} /> : <Redirect to="/login" />)
             }}
             />
             <Route
             path="/owners/:ownerId(\d+)/details" render={props => {
-                return <OwnerWithAnimals {...props} />
+                return (hasUser ? <OwnerWithAnimals {...props} /> : <Redirect to="/login" />) 
             }}
             />
             <Route
             path="/owners/:ownerId(\d+)/edit" render={props => {
-                return (isAuthenticated() ? <OwnerEditForm {...props} /> : <Redirect to="/login" />)
+                return (hasUser ? <OwnerEditForm {...props} /> : <Redirect to="/login" />)
             }}
             />
             <Route 
             path="/owners/new"
             render={props => {
-                return <OwnerForm {...props} />
+                return (hasUser ? <OwnerForm {...props} /> : <Redirect to="/login" />)
             }}
             />
         </React.Fragment>

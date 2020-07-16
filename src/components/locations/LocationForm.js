@@ -4,6 +4,7 @@ import LocationManager from "../../modules/LocationManager";
 const LocationForm = props => {
     const [location, setLocation] = useState({name: "", address: "", hours: ""});
     const [isLoading, setIsLoading] = useState(false);
+    
 
     const handleFieldChange = (event) => {
         //stateToChange variable has value of all properties of location object

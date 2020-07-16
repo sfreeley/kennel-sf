@@ -7,16 +7,6 @@
       "picture": "poodle.jpg",
       "employeeId": 2,
       "ownerId": 1
-      
-    },
-    {
-      "id": 2,
-      "name": "decker",
-      "breed": "German Shepherd",
-      "picture": "german-shepherd.jpg",
-      "employeeId": 3,
-      "ownerId": 1
-      
     },
     {
       "id": 3,
@@ -25,7 +15,6 @@
       "picture": "pitbull.jpg",
       "employeeId": 4,
       "ownerId": 2
-      
     },
     {
       "id": 4,
@@ -34,7 +23,20 @@
       "picture": "dog.svg",
       "employeeId": 1,
       "ownerId": 4
-      
+    },
+    {
+      "name": "Grant",
+      "breed": "Staffordshire Terrier",
+      "employeeId": 1,
+      "picture": "dog.svg",
+      "id": 6
+    },
+    {
+      "name": "Peony",
+      "breed": "Hound",
+      "employeeId": 2,
+      "picture": "dog.svg",
+      "id": 7
     }
   ],
   "locations": [
@@ -85,20 +87,20 @@
       "locationId": 3
     },
     {
-      "id": 3,
-      "name": "Georgie",
-      "age": 26,
-      "experience": "2.5 years",
-      "picture": "dog-walker.jpg",
-      "locationId": "3"
-    },
-    {
       "name": "Buffy",
       "age": "45",
       "experience": "3 years",
       "picture": "corgi.jpg",
       "id": 4,
       "locationId": 1
+    },
+    {
+      "name": "Marty",
+      "age": "22",
+      "experience": "3 years",
+      "locationId": 4,
+      "picture": "corgi.jpg",
+      "id": 5
     }
   ],
   "owners": [
@@ -107,28 +109,24 @@
       "name": "Eliza",
       "phone": "(253) 555-1111",
       "picture": "dog-friend.jpg"
-      
     },
     {
       "id": 2,
       "name": "Peggy",
       "phone": "(321) 555-2222",
       "picture": "pug-owner.jpg"
-      
     },
     {
       "id": 3,
       "name": "Alexander",
       "phone": "(847) 555-3333",
       "picture": "sunset-dog-owner.jpg"
-      
     },
     {
       "name": "Angelica",
       "phone": "(561)-111-1111",
       "picture": "bike-dog-owner.jpg",
       "id": 4
-      
     }
   ]
 }

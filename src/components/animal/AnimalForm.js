@@ -4,7 +4,7 @@ import EmployeeManager from "../../modules/EmployeeManager";
 import "./AnimalForm.css";
 
 const AnimalForm = props => {
-    const [animal, setAnimal] = useState({name: "", breed: ""});
+    const [animal, setAnimal] = useState({name: "", breed: "", employeeId: 1});
     //isLoading is set to false (ie not disabled)
     const [isLoading, setIsLoading] = useState(false);
     //state declared for employees in order to add dropdown for caretaker
@@ -13,7 +13,6 @@ const AnimalForm = props => {
     const handleFieldChange = event => {
         //value of stateToChange variable are the properties of animal object
         const stateToChange = {...animal,
-                            employeeId: parseInt(animal.employeeId),
                              picture:"dog.svg"};
         //set the properties of animal object (ie name, breed) that corresponds to
         //id of input field(ie name, breed) to the value of what the user types
@@ -21,6 +20,13 @@ const AnimalForm = props => {
         //change state to user input which will cause new info to re-render
         setAnimal(stateToChange);
     };
+
+    //function to handle employeeId information -- will change from string to number when submitting to database
+    const handleEmployeeIdFieldChange = event => {
+        const stateToChange = {...animal}
+        stateToChange[event.target.id] = parseInt(event.target.value);
+        setAnimal(stateToChange)
+    }
 
     useEffect(() => {
         EmployeeManager.getAllEmployees()
@@ -33,7 +39,7 @@ const AnimalForm = props => {
         //invoke AnimalManger POST method and redirect to full animal list
         const constructNewAnimal = event => {
             event.preventDefault();
-            if (animal.name === "" || animal.breed === "" || animal.employeeId === "") {
+            if (animal.name === "" || animal.breed === "" || animal.employeeId === null) {
                 window.alert("Please input an animal name, breed, and caretaker");
             } else {
                 //now make submit button not clickable
@@ -70,7 +76,7 @@ const AnimalForm = props => {
                     className="form-control"
                     id="employeeId"
                     value={animal.employeeId}
-                    onChange={handleFieldChange}
+                    onChange={handleEmployeeIdFieldChange}
                     >
                     {employees.map(employee => 
                         <option key={employee.id} value={employee.id}>
